@@ -1,0 +1,9 @@
+*backups/
+fp-info-cache
+*.kical_prl
+*.bak
+*.lck
+*.log
+.history
+.history_trim
+gerbers
