@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "STM32",
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "intelliSenseMode": "gcc-arm",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+
+            "includePath": [
+                "${workspaceFolder}",
+                "${workspaceFolder}/submodules/CMSIS_6/CMSIS/Core/Include",
+                "${workspaceFolder}/submodules/cmsis-device-c0/Include",
+                "${workspaceFolder}/submodules/stm32c0xx-hal-driver/Inc",
+                "${workspaceFolder}/main_csrc/**"
+            ],
+
+            "defines": [
+                "STM32C031xx"
+            ]
+        }
+    ],
+    "version": 4
+}
