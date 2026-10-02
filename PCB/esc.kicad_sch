@@ -199,7 +199,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Amplifier_Operational:LMV324"
+		(symbol "Amplifier_Operational:TLV9064"
 			(pin_names
 				(offset 0.127)
 			)
@@ -219,7 +219,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "LMV324"
+			(property "Value" "TLV9064"
 				(at 0 -5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -241,7 +241,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lmv324.pdf"
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv9064.pdf"
 				(at 1.27 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -252,7 +252,7 @@
 					)
 				)
 			)
-			(property "Description" "Quad Low-Voltage Rail-to-Rail Output Operational Amplifier, SOIC-14/SSOP-14"
+			(property "Description" "Quad Rail-to-Rail, Operational Amplifiers, 10MHz, SOIC-14/TSSOP-14"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -284,7 +284,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "SOIC*3.9x8.7mm*P1.27mm* DIP*W7.62mm* TSSOP*4.4x5mm*P0.65mm* SSOP*5.3x6.2mm*P0.65mm* MSOP*3x3mm*P0.5mm*"
+			(property "ki_fp_filters" "SOIC*3.9x8.7mm*P1.27mm* TSSOP*4.4x5mm*P0.65mm*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -295,7 +295,7 @@
 					)
 				)
 			)
-			(symbol "LMV324_1_1"
+			(symbol "TLV9064_1_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -363,7 +363,7 @@
 					)
 				)
 			)
-			(symbol "LMV324_2_1"
+			(symbol "TLV9064_2_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -431,7 +431,7 @@
 					)
 				)
 			)
-			(symbol "LMV324_3_1"
+			(symbol "TLV9064_3_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -499,7 +499,7 @@
 					)
 				)
 			)
-			(symbol "LMV324_4_1"
+			(symbol "TLV9064_4_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -567,7 +567,7 @@
 					)
 				)
 			)
-			(symbol "LMV324_5_1"
+			(symbol "TLV9064_5_1"
 				(pin power_in line
 					(at -2.54 7.62 270)
 					(length 3.81)
@@ -5685,6 +5685,135 @@
 		)
 	)
 	(symbol
+		(lib_id "Amplifier_Operational:TLV9064")
+		(at 184.15 191.77 0)
+		(unit 5)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "12b38cd3-5d65-4917-8e3b-b06ada42aabb")
+		(property "Reference" "U3"
+			(at 182.88 190.4999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TLV9064"
+			(at 182.88 193.0399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+			(at 182.88 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv9064.pdf"
+			(at 185.42 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Quad Rail-to-Rail, Operational Amplifiers, 10MHz, SOIC-14/TSSOP-14"
+			(at 184.15 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part No." "C779410"
+			(at 184.15 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "127a3dc3-587d-404d-bdf0-59991b67df50")
+		)
+		(pin "2"
+			(uuid "eef03f4f-43d4-40e9-a53d-c83de11ef6f3")
+		)
+		(pin "6"
+			(uuid "d66c20df-5fea-45ea-8b54-2ea679b19ace")
+		)
+		(pin "7"
+			(uuid "9e29b7b0-f06e-4f85-b09a-207fb07890c4")
+		)
+		(pin "3"
+			(uuid "935cdf33-9a1f-4383-8367-850607681589")
+		)
+		(pin "9"
+			(uuid "0cf58611-4fc6-4f9f-825e-4dda35aac91b")
+		)
+		(pin "8"
+			(uuid "52ccb6af-5e62-42f9-8b9d-610aab60ff6b")
+		)
+		(pin "5"
+			(uuid "d03f8e1b-0485-402f-af5e-5251504e5cb9")
+		)
+		(pin "14"
+			(uuid "49834656-11f1-4236-ab3d-0062609a59f9")
+		)
+		(pin "12"
+			(uuid "0878c9fb-1045-4168-b8a4-cfba8670be1f")
+		)
+		(pin "13"
+			(uuid "37845af6-262e-4cb8-867a-0d06c7deb9ef")
+		)
+		(pin "11"
+			(uuid "caede942-49ab-4171-97cf-638103ca4d87")
+		)
+		(pin "4"
+			(uuid "dda709c9-8726-46fb-a892-b3c5d283f0e6")
+		)
+		(pin "10"
+			(uuid "5e17300f-8b30-46b9-8b7a-e17fcb5c965b")
+		)
+		(instances
+			(project "esc"
+				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
+					(reference "U3")
+					(unit 5)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 144.78 76.2 270)
 		(mirror x)
@@ -5765,133 +5894,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Amplifier_Operational:LMV324")
-		(at 123.19 260.35 0)
-		(unit 2)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1784d705-ff17-4e9d-837b-3ca7cbfb2efa")
-		(property "Reference" "U3"
-			(at 123.19 250.19 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LMV324A"
-			(at 123.19 252.73 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
-			(at 121.92 257.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmv358a.pdf"
-			(at 124.46 255.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Quad Low-Voltage Rail-to-Rail Output Operational Amplifier, SOIC-14/SSOP-14"
-			(at 123.19 260.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part No." "C484733"
-			(at 123.19 260.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "7"
-			(uuid "0e467539-2b07-4b7f-b66d-e1f93cd3eddc")
-		)
-		(pin "10"
-			(uuid "5306d43d-ce6a-4899-b380-99525fbe7b2d")
-		)
-		(pin "14"
-			(uuid "a704522e-4266-4485-9326-3c42193f9fff")
-		)
-		(pin "13"
-			(uuid "5b4fdf83-2499-40d7-9f29-894de41f1a24")
-		)
-		(pin "4"
-			(uuid "4aefe31e-5d70-4f2d-ac01-b22c88dbd27c")
-		)
-		(pin "8"
-			(uuid "ba5b12fa-9568-4ab3-bd0a-f78a5b94b838")
-		)
-		(pin "5"
-			(uuid "96c54d83-cd27-49d2-a65a-bcf8b4a0d3dd")
-		)
-		(pin "9"
-			(uuid "5f228455-795f-4d0b-aec3-cd5eccaa3217")
-		)
-		(pin "2"
-			(uuid "d208f185-26a1-41a7-a89e-db04f99981d6")
-		)
-		(pin "11"
-			(uuid "4aa38aa6-50d0-4beb-af54-bd3d154e7633")
-		)
-		(pin "1"
-			(uuid "4cd202bf-1cb1-4e9b-af26-722ea953a730")
-		)
-		(pin "12"
-			(uuid "7373383d-8a07-4ea8-ab95-707287567897")
-		)
-		(pin "6"
-			(uuid "f73bded1-0bf5-4c83-9623-a5fca3dcee57")
-		)
-		(pin "3"
-			(uuid "9ce8f918-b591-4edd-9993-6a66784ed962")
-		)
-		(instances
-			(project "esc"
-				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
-					(reference "U3")
-					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:VDD")
 		(at 179.07 107.95 0)
 		(unit 1)
@@ -5963,133 +5965,6 @@
 			(project "esc"
 				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
 					(reference "#PWR010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Amplifier_Operational:LMV324")
-		(at 224.79 240.03 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1af3a6f0-4592-4f75-9f69-dc5dddf3e109")
-		(property "Reference" "U3"
-			(at 224.79 229.87 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LMV324A"
-			(at 224.79 232.41 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
-			(at 223.52 237.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmv358a.pdf"
-			(at 226.06 234.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Quad Low-Voltage Rail-to-Rail Output Operational Amplifier, SOIC-14/SSOP-14"
-			(at 224.79 240.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part No." "C484733"
-			(at 224.79 240.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "7"
-			(uuid "36730fdc-9c80-4aef-8c28-cc4db84b166c")
-		)
-		(pin "10"
-			(uuid "5306d43d-ce6a-4899-b380-99525fbe7b2e")
-		)
-		(pin "14"
-			(uuid "a704522e-4266-4485-9326-3c42193fa000")
-		)
-		(pin "13"
-			(uuid "5b4fdf83-2499-40d7-9f29-894de41f1a25")
-		)
-		(pin "4"
-			(uuid "4aefe31e-5d70-4f2d-ac01-b22c88dbd27d")
-		)
-		(pin "8"
-			(uuid "ba5b12fa-9568-4ab3-bd0a-f78a5b94b839")
-		)
-		(pin "5"
-			(uuid "f2202c3f-8edb-4fb1-b958-45c72eba0873")
-		)
-		(pin "9"
-			(uuid "5f228455-795f-4d0b-aec3-cd5eccaa3218")
-		)
-		(pin "2"
-			(uuid "ebe6f874-235f-4131-bacf-f9f3aad1b99e")
-		)
-		(pin "11"
-			(uuid "4aa38aa6-50d0-4beb-af54-bd3d154e7634")
-		)
-		(pin "1"
-			(uuid "fd72f41a-e1e8-44f0-8e09-a6ed5731e356")
-		)
-		(pin "12"
-			(uuid "7373383d-8a07-4ea8-ab95-707287567898")
-		)
-		(pin "6"
-			(uuid "c1ab6414-b63d-469b-8d78-856adbaf2d1e")
-		)
-		(pin "3"
-			(uuid "433e0632-968b-4f4b-976d-af2a50e25f56")
-		)
-		(instances
-			(project "esc"
-				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
-					(reference "U3")
 					(unit 1)
 				)
 			)
@@ -7004,6 +6879,133 @@
 		)
 	)
 	(symbol
+		(lib_id "Amplifier_Operational:TLV9064")
+		(at 123.19 176.53 0)
+		(unit 4)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "40e35969-9416-498c-94b7-8cf6e431c040")
+		(property "Reference" "U3"
+			(at 123.19 166.37 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TLV9064"
+			(at 123.19 168.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+			(at 121.92 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv9064.pdf"
+			(at 124.46 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Quad Rail-to-Rail, Operational Amplifiers, 10MHz, SOIC-14/TSSOP-14"
+			(at 123.19 176.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part No." "C779410"
+			(at 123.19 176.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "127a3dc3-587d-404d-bdf0-59991b67df50")
+		)
+		(pin "2"
+			(uuid "eef03f4f-43d4-40e9-a53d-c83de11ef6f3")
+		)
+		(pin "6"
+			(uuid "d66c20df-5fea-45ea-8b54-2ea679b19ace")
+		)
+		(pin "7"
+			(uuid "9e29b7b0-f06e-4f85-b09a-207fb07890c4")
+		)
+		(pin "3"
+			(uuid "935cdf33-9a1f-4383-8367-850607681589")
+		)
+		(pin "9"
+			(uuid "0cf58611-4fc6-4f9f-825e-4dda35aac91b")
+		)
+		(pin "8"
+			(uuid "52ccb6af-5e62-42f9-8b9d-610aab60ff6b")
+		)
+		(pin "5"
+			(uuid "d03f8e1b-0485-402f-af5e-5251504e5cb9")
+		)
+		(pin "14"
+			(uuid "49834656-11f1-4236-ab3d-0062609a59f9")
+		)
+		(pin "12"
+			(uuid "0878c9fb-1045-4168-b8a4-cfba8670be1f")
+		)
+		(pin "13"
+			(uuid "37845af6-262e-4cb8-867a-0d06c7deb9ef")
+		)
+		(pin "11"
+			(uuid "caede942-49ab-4171-97cf-638103ca4d87")
+		)
+		(pin "4"
+			(uuid "dda709c9-8726-46fb-a892-b3c5d283f0e6")
+		)
+		(pin "10"
+			(uuid "5e17300f-8b30-46b9-8b7a-e17fcb5c965b")
+		)
+		(instances
+			(project "esc"
+				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
+					(reference "U3")
+					(unit 4)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 171.45 191.77 0)
 		(unit 1)
@@ -7584,135 +7586,6 @@
 				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
 					(reference "SW1")
 					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Amplifier_Operational:LMV324")
-		(at 184.15 191.77 0)
-		(unit 5)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "56321e85-fcba-441a-8ecf-4937e7bd4129")
-		(property "Reference" "U3"
-			(at 182.88 190.4999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "LMV324A"
-			(at 182.88 193.0399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
-			(at 182.88 189.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmv358a.pdf"
-			(at 185.42 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Quad Low-Voltage Rail-to-Rail Output Operational Amplifier, SOIC-14/SSOP-14"
-			(at 184.15 191.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part No." "C484733"
-			(at 184.15 191.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "7"
-			(uuid "36730fdc-9c80-4aef-8c28-cc4db84b166a")
-		)
-		(pin "10"
-			(uuid "5306d43d-ce6a-4899-b380-99525fbe7b2c")
-		)
-		(pin "14"
-			(uuid "a704522e-4266-4485-9326-3c42193f9ffe")
-		)
-		(pin "13"
-			(uuid "5b4fdf83-2499-40d7-9f29-894de41f1a23")
-		)
-		(pin "4"
-			(uuid "4aefe31e-5d70-4f2d-ac01-b22c88dbd27b")
-		)
-		(pin "8"
-			(uuid "ba5b12fa-9568-4ab3-bd0a-f78a5b94b837")
-		)
-		(pin "5"
-			(uuid "f2202c3f-8edb-4fb1-b958-45c72eba0871")
-		)
-		(pin "9"
-			(uuid "5f228455-795f-4d0b-aec3-cd5eccaa3216")
-		)
-		(pin "2"
-			(uuid "d208f185-26a1-41a7-a89e-db04f99981d5")
-		)
-		(pin "11"
-			(uuid "4aa38aa6-50d0-4beb-af54-bd3d154e7632")
-		)
-		(pin "1"
-			(uuid "4cd202bf-1cb1-4e9b-af26-722ea953a72f")
-		)
-		(pin "12"
-			(uuid "7373383d-8a07-4ea8-ab95-707287567896")
-		)
-		(pin "6"
-			(uuid "c1ab6414-b63d-469b-8d78-856adbaf2d1c")
-		)
-		(pin "3"
-			(uuid "9ce8f918-b591-4edd-9993-6a66784ed961")
-		)
-		(instances
-			(project "esc"
-				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
-					(reference "U3")
-					(unit 5)
 				)
 			)
 		)
@@ -8366,133 +8239,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Amplifier_Operational:LMV324")
-		(at 123.19 176.53 0)
-		(unit 4)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "70f4cd19-3fca-4881-acf5-7e06605d251f")
-		(property "Reference" "U3"
-			(at 123.19 166.37 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LMV324A"
-			(at 123.19 168.91 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
-			(at 121.92 173.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmv358a.pdf"
-			(at 124.46 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Quad Low-Voltage Rail-to-Rail Output Operational Amplifier, SOIC-14/SSOP-14"
-			(at 123.19 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part No." "C484733"
-			(at 123.19 176.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "7"
-			(uuid "36730fdc-9c80-4aef-8c28-cc4db84b1668")
-		)
-		(pin "10"
-			(uuid "5306d43d-ce6a-4899-b380-99525fbe7b2a")
-		)
-		(pin "14"
-			(uuid "9ad94cfc-bb47-4f18-9423-92fc331cefce")
-		)
-		(pin "13"
-			(uuid "afd1cf1c-85e5-45aa-8bf6-b07a012e1709")
-		)
-		(pin "4"
-			(uuid "4aefe31e-5d70-4f2d-ac01-b22c88dbd279")
-		)
-		(pin "8"
-			(uuid "ba5b12fa-9568-4ab3-bd0a-f78a5b94b835")
-		)
-		(pin "5"
-			(uuid "f2202c3f-8edb-4fb1-b958-45c72eba086f")
-		)
-		(pin "9"
-			(uuid "5f228455-795f-4d0b-aec3-cd5eccaa3214")
-		)
-		(pin "2"
-			(uuid "d208f185-26a1-41a7-a89e-db04f99981d3")
-		)
-		(pin "11"
-			(uuid "4aa38aa6-50d0-4beb-af54-bd3d154e7630")
-		)
-		(pin "1"
-			(uuid "4cd202bf-1cb1-4e9b-af26-722ea953a72d")
-		)
-		(pin "12"
-			(uuid "3e9e733a-bea2-4cf7-b6db-2e4a3b2e681a")
-		)
-		(pin "6"
-			(uuid "c1ab6414-b63d-469b-8d78-856adbaf2d1a")
-		)
-		(pin "3"
-			(uuid "9ce8f918-b591-4edd-9993-6a66784ed95f")
-		)
-		(instances
-			(project "esc"
-				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
-					(reference "U3")
-					(unit 4)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 248.92 114.3 0)
 		(unit 1)
@@ -8998,6 +8744,133 @@
 				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
 					(reference "#PWR018")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:TLV9064")
+		(at 123.19 260.35 0)
+		(unit 2)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "812de016-263a-4cea-990d-831cc44af563")
+		(property "Reference" "U3"
+			(at 123.19 250.19 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TLV9064"
+			(at 123.19 252.73 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+			(at 121.92 257.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv9064.pdf"
+			(at 124.46 255.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Quad Rail-to-Rail, Operational Amplifiers, 10MHz, SOIC-14/TSSOP-14"
+			(at 123.19 260.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part No." "C779410"
+			(at 123.19 260.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "127a3dc3-587d-404d-bdf0-59991b67df50")
+		)
+		(pin "2"
+			(uuid "eef03f4f-43d4-40e9-a53d-c83de11ef6f3")
+		)
+		(pin "6"
+			(uuid "d66c20df-5fea-45ea-8b54-2ea679b19ace")
+		)
+		(pin "7"
+			(uuid "9e29b7b0-f06e-4f85-b09a-207fb07890c4")
+		)
+		(pin "3"
+			(uuid "935cdf33-9a1f-4383-8367-850607681589")
+		)
+		(pin "9"
+			(uuid "0cf58611-4fc6-4f9f-825e-4dda35aac91b")
+		)
+		(pin "8"
+			(uuid "52ccb6af-5e62-42f9-8b9d-610aab60ff6b")
+		)
+		(pin "5"
+			(uuid "d03f8e1b-0485-402f-af5e-5251504e5cb9")
+		)
+		(pin "14"
+			(uuid "49834656-11f1-4236-ab3d-0062609a59f9")
+		)
+		(pin "12"
+			(uuid "0878c9fb-1045-4168-b8a4-cfba8670be1f")
+		)
+		(pin "13"
+			(uuid "37845af6-262e-4cb8-867a-0d06c7deb9ef")
+		)
+		(pin "11"
+			(uuid "caede942-49ab-4171-97cf-638103ca4d87")
+		)
+		(pin "4"
+			(uuid "dda709c9-8726-46fb-a892-b3c5d283f0e6")
+		)
+		(pin "10"
+			(uuid "5e17300f-8b30-46b9-8b7a-e17fcb5c965b")
+		)
+		(instances
+			(project "esc"
+				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
+					(reference "U3")
+					(unit 2)
 				)
 			)
 		)
@@ -10488,6 +10361,133 @@
 		)
 	)
 	(symbol
+		(lib_id "Amplifier_Operational:TLV9064")
+		(at 123.19 218.44 0)
+		(unit 3)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "de58407a-5a9a-42cc-9a81-652044b55222")
+		(property "Reference" "U3"
+			(at 123.19 208.28 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TLV9064"
+			(at 123.19 210.82 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+			(at 121.92 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv9064.pdf"
+			(at 124.46 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Quad Rail-to-Rail, Operational Amplifiers, 10MHz, SOIC-14/TSSOP-14"
+			(at 123.19 218.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part No." "C779410"
+			(at 123.19 218.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "127a3dc3-587d-404d-bdf0-59991b67df50")
+		)
+		(pin "2"
+			(uuid "eef03f4f-43d4-40e9-a53d-c83de11ef6f3")
+		)
+		(pin "6"
+			(uuid "d66c20df-5fea-45ea-8b54-2ea679b19ace")
+		)
+		(pin "7"
+			(uuid "9e29b7b0-f06e-4f85-b09a-207fb07890c4")
+		)
+		(pin "3"
+			(uuid "935cdf33-9a1f-4383-8367-850607681589")
+		)
+		(pin "9"
+			(uuid "0cf58611-4fc6-4f9f-825e-4dda35aac91b")
+		)
+		(pin "8"
+			(uuid "52ccb6af-5e62-42f9-8b9d-610aab60ff6b")
+		)
+		(pin "5"
+			(uuid "d03f8e1b-0485-402f-af5e-5251504e5cb9")
+		)
+		(pin "14"
+			(uuid "49834656-11f1-4236-ab3d-0062609a59f9")
+		)
+		(pin "12"
+			(uuid "0878c9fb-1045-4168-b8a4-cfba8670be1f")
+		)
+		(pin "13"
+			(uuid "37845af6-262e-4cb8-867a-0d06c7deb9ef")
+		)
+		(pin "11"
+			(uuid "caede942-49ab-4171-97cf-638103ca4d87")
+		)
+		(pin "4"
+			(uuid "dda709c9-8726-46fb-a892-b3c5d283f0e6")
+		)
+		(pin "10"
+			(uuid "5e17300f-8b30-46b9-8b7a-e17fcb5c965b")
+		)
+		(instances
+			(project "esc"
+				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
+					(reference "U3")
+					(unit 3)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 93.98 86.36 0)
 		(unit 1)
@@ -10834,6 +10834,133 @@
 		)
 	)
 	(symbol
+		(lib_id "Amplifier_Operational:TLV9064")
+		(at 224.79 240.03 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f1e1afb4-f97f-4844-a105-a9b8dbcb3f5c")
+		(property "Reference" "U3"
+			(at 224.79 229.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TLV9064"
+			(at 224.79 232.41 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+			(at 223.52 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv9064.pdf"
+			(at 226.06 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Quad Rail-to-Rail, Operational Amplifiers, 10MHz, SOIC-14/TSSOP-14"
+			(at 224.79 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part No." "C779410"
+			(at 224.79 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "127a3dc3-587d-404d-bdf0-59991b67df50")
+		)
+		(pin "2"
+			(uuid "eef03f4f-43d4-40e9-a53d-c83de11ef6f3")
+		)
+		(pin "6"
+			(uuid "d66c20df-5fea-45ea-8b54-2ea679b19ace")
+		)
+		(pin "7"
+			(uuid "9e29b7b0-f06e-4f85-b09a-207fb07890c4")
+		)
+		(pin "3"
+			(uuid "935cdf33-9a1f-4383-8367-850607681589")
+		)
+		(pin "9"
+			(uuid "0cf58611-4fc6-4f9f-825e-4dda35aac91b")
+		)
+		(pin "8"
+			(uuid "52ccb6af-5e62-42f9-8b9d-610aab60ff6b")
+		)
+		(pin "5"
+			(uuid "d03f8e1b-0485-402f-af5e-5251504e5cb9")
+		)
+		(pin "14"
+			(uuid "49834656-11f1-4236-ab3d-0062609a59f9")
+		)
+		(pin "12"
+			(uuid "0878c9fb-1045-4168-b8a4-cfba8670be1f")
+		)
+		(pin "13"
+			(uuid "37845af6-262e-4cb8-867a-0d06c7deb9ef")
+		)
+		(pin "11"
+			(uuid "caede942-49ab-4171-97cf-638103ca4d87")
+		)
+		(pin "4"
+			(uuid "dda709c9-8726-46fb-a892-b3c5d283f0e6")
+		)
+		(pin "10"
+			(uuid "5e17300f-8b30-46b9-8b7a-e17fcb5c965b")
+		)
+		(instances
+			(project "esc"
+				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 158.75 76.2 0)
 		(unit 1)
@@ -10983,133 +11110,6 @@
 				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
 					(reference "#PWR026")
 					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Amplifier_Operational:LMV324")
-		(at 123.19 218.44 0)
-		(unit 3)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f7a882b3-d7bb-4356-9280-55a0df1c01e5")
-		(property "Reference" "U3"
-			(at 123.19 208.28 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LMV324A"
-			(at 123.19 210.82 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
-			(at 121.92 215.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmv358a.pdf"
-			(at 124.46 213.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Quad Low-Voltage Rail-to-Rail Output Operational Amplifier, SOIC-14/SSOP-14"
-			(at 123.19 218.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part No." "C484733"
-			(at 123.19 218.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "7"
-			(uuid "36730fdc-9c80-4aef-8c28-cc4db84b1669")
-		)
-		(pin "10"
-			(uuid "0e302ee3-b67c-4671-8e42-efdacf0b7caa")
-		)
-		(pin "14"
-			(uuid "a704522e-4266-4485-9326-3c42193f9ffd")
-		)
-		(pin "13"
-			(uuid "5b4fdf83-2499-40d7-9f29-894de41f1a22")
-		)
-		(pin "4"
-			(uuid "4aefe31e-5d70-4f2d-ac01-b22c88dbd27a")
-		)
-		(pin "8"
-			(uuid "37604809-c7e1-4ce6-9da3-7d1f236058e8")
-		)
-		(pin "5"
-			(uuid "f2202c3f-8edb-4fb1-b958-45c72eba0870")
-		)
-		(pin "9"
-			(uuid "5822e339-e7a0-4773-bbaa-658ce548f748")
-		)
-		(pin "2"
-			(uuid "d208f185-26a1-41a7-a89e-db04f99981d4")
-		)
-		(pin "11"
-			(uuid "4aa38aa6-50d0-4beb-af54-bd3d154e7631")
-		)
-		(pin "1"
-			(uuid "4cd202bf-1cb1-4e9b-af26-722ea953a72e")
-		)
-		(pin "12"
-			(uuid "7373383d-8a07-4ea8-ab95-707287567895")
-		)
-		(pin "6"
-			(uuid "c1ab6414-b63d-469b-8d78-856adbaf2d1b")
-		)
-		(pin "3"
-			(uuid "9ce8f918-b591-4edd-9993-6a66784ed960")
-		)
-		(instances
-			(project "esc"
-				(path "/ebec878f-e3e7-4d26-be4f-2ef2c4868971"
-					(reference "U3")
-					(unit 3)
 				)
 			)
 		)
