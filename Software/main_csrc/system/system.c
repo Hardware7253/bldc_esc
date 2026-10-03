@@ -23,7 +23,7 @@ void init_clocks(void) {
         // Turn on LSI and turn HSE, HSI, and LSE off
         RCC_OscInitTypeDef osc_cfg;
         osc_cfg.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_LSI | RCC_OSCILLATORTYPE_LSE;
-        osc_cfg.HSIState = RCC_HSI_OFF;
+        osc_cfg.HSIState = RCC_HSI_ON;
         osc_cfg.HSEState = RCC_HSE_OFF;
         osc_cfg.LSIState = RCC_LSI_ON;
         osc_cfg.LSEState = RCC_LSE_OFF;
@@ -35,12 +35,12 @@ void init_clocks(void) {
     {
         RCC_ClkInitTypeDef clk_cfg = {
             .ClockType = RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1,
-            .SYSCLKSource = RCC_SYSCLKSOURCE_LSI,
+            .SYSCLKSource = RCC_SYSCLKSOURCE_HSI,
             .SYSCLKDivider = RCC_SYSCLK_DIV1,
             .AHBCLKDivider = RCC_HCLK_DIV1,
             .APB1CLKDivider = RCC_APB1_DIV1,
         };
-        error_handler_msg(HAL_RCC_ClockConfig(&clk_cfg, FLASH_LATENCY_0), "Error with clock config");
+        error_handler_msg(HAL_RCC_ClockConfig(&clk_cfg, FLASH_LATENCY_1), "Error with clock config");
     }
 
 }
