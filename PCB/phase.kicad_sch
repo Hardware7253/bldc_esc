@@ -1338,7 +1338,7 @@
 		)
 		(uuid "1de0c553-40b8-48e7-8dc8-eaac245de2aa")
 	)
-	(text "MOSFETS have 1mΩ on resistance, 1.3Ω gate\nresistance, 23nC loss charge, and ~103nC\ntotal gate charge when charging to 12V.\n\nv_gtdr = 12.6V max, 9V min (3S)\nAfter bootsrap diode:\n11.75V max 8.15V min\n\nIg = Vg / (10+1.3)\nIg = 1.04A max, 0.721A min\n\nA single MOSFET has max 1.2W total loss @ 100kHz, 20A:\nP_sw = 580mW (Ig = 1.04A)\nP_sw = 804mW (Ig = 0.721A)\nP_conduction = 400mW (for 100% duty)\n\nCbootstrap = 10*(103nC/8.15V) = 127nF\nSo use Cbootstrap = 150nF\nSingle MOSFETs max gate drive RMS current is 147mA\n(when switched at 100kHz\n"
+	(text "MOSFETS have 1mΩ on resistance, 1.3Ω gate\nresistance, 23nC loss charge, and ~103nC\ntotal gate charge when charging to 12V.\n\nv_gtdr = 12.6V max, 9V min (3S)\nAfter bootsrap diode:\n11.75V max 8.15V min\n\nIg = Vg / (10+1.3)\nIg = 1.04A max, 0.721A min\n\nA single MOSFET has max 1.2W total loss @ 100kHz, 20A:\nP_sw = 557mW (Ig = 1.04A)\nP_sw = 804mW (Ig = 0.721A)\nP_conduction = 400mW (for 100% duty)\n\nCbootstrap = 10*(103nC/8.15V) = 127nF\nSo use Cbootstrap = 150nF\nSingle MOSFETs max gate drive RMS current is 147mA\n(when switched at 100kHz\n"
 		(exclude_from_sim no)
 		(at 139.192 49.022 0)
 		(effects

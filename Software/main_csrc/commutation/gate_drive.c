@@ -1,5 +1,4 @@
 #include "gate_drive.h"
-#include "commutation.h"
 #include "stm32c0xx_hal.h"
 #include "system.h"
 #include "map.h"
@@ -7,15 +6,22 @@
 static TIM_HandleTypeDef htim1;
 static TIM_HandleTypeDef htim3;
 
+#define PERIPH_CLK_ENABLE \
+    __HAL_RCC_GPIOA_CLK_ENABLE(); \
+    __HAL_RCC_GPIOB_CLK_ENABLE(); \
+    __HAL_RCC_TIM1_CLK_ENABLE(); \
+    __HAL_RCC_TIM3_CLK_ENABLE
+
+
 #define NO_TIMS 2
 static TIM_HandleTypeDef* const TIM_HANDLES[NO_TIMS] = {&htim1, &htim3};
 static TIM_TypeDef* const TIM_INSTANCES[NO_TIMS] = {TIM1, TIM3};
 
-#define NO_PHASES 3
+#define NO_PHASES PHASE_NULL
 typedef enum {
     PHASE_A = 0,
-    PHASE_B = 1,
-    PHASE_C = 2,
+    PHASE_B,
+    PHASE_C,
     PHASE_NULL,
 } phase_idx_t;
 
@@ -35,14 +41,11 @@ const uint16_t TIM_PRESCALER = 0;
 const uint16_t TIM_PERIOD = 479;
 
 // Currently active phases
-// static phase_idx_t low_phase = PHASE_NULL;
-// static phase_idx_t high_phase = PHASE_NULL;
+static phase_idx_t high_phase = PHASE_NULL;
+static phase_idx_t low_phase = PHASE_NULL;
 
 void init_gd_peripherals(void) {
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    __HAL_RCC_TIM1_CLK_ENABLE();
-    __HAL_RCC_TIM3_CLK_ENABLE();
+    PERIPH_CLK_ENABLE();
 
     GPIO_InitTypeDef gpio_init = {
         .Mode = GPIO_MODE_OUTPUT_PP,
@@ -57,6 +60,7 @@ void init_gd_peripherals(void) {
     }
 
     // Init high-side gate control pins
+    gpio_init.Pull = GPIO_PULLDOWN;
     gpio_init.Mode = GPIO_MODE_AF_PP;
     for (uint8_t i = 0; i < NO_PHASES; i++) {
         gpio_init.Pin = HIGH_PINS[i];
@@ -111,19 +115,76 @@ void init_gd_peripherals(void) {
         uint32_t tim_channel = HIGH_TIM_CHANS[i];
         error_handler(HAL_TIM_PWM_ConfigChannel(htim, &tim_oc_init, tim_channel));
     }
-
-    test();
-    set_duty_100(50);
 }
 
-// void switch_active_pair(commutation_step_t commutation_step) {
-void test(void) {
+// Dead time for driving inverter gates
+// Currently unused because switching waveforms get some natural dead time from HAL delays
+// Usually get ~1uS dead time with STM32C031 at 48MHz
+// Faster MCU's will likely require extra dead time
+static void dead_time(void) {}
 
-    for (uint8_t i = 0; i < NO_PHASES; i++) {
-        TIM_HandleTypeDef* htim = HIGH_TIM_HANDLES[i];
-        uint32_t tim_channel = HIGH_TIM_CHANS[i];
-        error_handler(HAL_TIM_PWM_Start(htim, tim_channel));
+// Switches the low side and starts PWM of high side for the given commutation step
+// Also switches off the old low side and high side and inserts dead time
+void switch_active_phases(commutation_step_t commutation_step) {
+    phase_idx_t new_high_phase = PHASE_NULL;
+    phase_idx_t new_low_phase = PHASE_NULL;
+
+    switch (commutation_step) {
+        case STEP_AB:
+            new_high_phase = PHASE_A;
+            new_low_phase  = PHASE_B;
+            break;
+
+        case STEP_AC:
+            new_high_phase = PHASE_A;
+            new_low_phase  = PHASE_C;
+            break;
+
+        case STEP_BC:
+            new_high_phase = PHASE_B;
+            new_low_phase  = PHASE_C;
+            break;
+
+        case STEP_BA:
+            new_high_phase = PHASE_B;
+            new_low_phase  = PHASE_A;
+            break;
+
+        case STEP_CA:
+            new_high_phase = PHASE_C;
+            new_low_phase  = PHASE_A;
+            break;
+
+        case STEP_CB:
+            new_high_phase = PHASE_C;
+            new_low_phase  = PHASE_B;
+            break;
+
+        default:
+            break;
     }
+
+    // Turn off old high phase and turn on new high phase
+    if (new_high_phase != high_phase) {
+        if (high_phase != PHASE_NULL) {
+            error_handler(HAL_TIM_PWM_Stop(HIGH_TIM_HANDLES[high_phase], HIGH_TIM_CHANS[high_phase]));
+            dead_time();
+        }
+
+        error_handler(HAL_TIM_PWM_Start(HIGH_TIM_HANDLES[new_high_phase], HIGH_TIM_CHANS[new_high_phase]));
+    }
+
+    // Turn off old low phase and turn on new low phase
+    if (new_low_phase != low_phase) {
+        if (low_phase != PHASE_NULL) {
+            HAL_GPIO_WritePin(LOW_PORTS[low_phase], LOW_PINS[low_phase], GPIO_PIN_RESET);
+            dead_time();
+        }
+        HAL_GPIO_WritePin(LOW_PORTS[new_low_phase], LOW_PINS[new_low_phase], GPIO_PIN_SET);
+    }
+
+    high_phase = new_high_phase;
+    low_phase = new_low_phase;
 }
 
 
