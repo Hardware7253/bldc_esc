@@ -3,8 +3,8 @@
 #include "system.h"
 #include "map.h"
 
-static TIM_HandleTypeDef htim1;
-static TIM_HandleTypeDef htim3;
+static TIM_HandleTypeDef htim1 = {0};
+static TIM_HandleTypeDef htim3 = {0};
 
 #define PERIPH_CLK_ENABLE \
     __HAL_RCC_GPIOA_CLK_ENABLE(); \

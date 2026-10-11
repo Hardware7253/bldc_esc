@@ -8,20 +8,22 @@ _estack     = ORIGIN(sram) + LENGTH(sram);    /* stack points to end of SRAM */
 SECTIONS {
   .vectors  : { KEEP(*(.isr_vector)) } > flash
   .text     : { *(.text*) }            > flash
-  .rodata   : { *(.rodata*) }          > flash
+  .rodata : { *(.rodata*) . = ALIGN(4); } > flash
 
-  .data : {
-    _sdata = .;   /* .data section start */
+  .data : ALIGN(4) {
+    _sdata = .;
     *(.first_data)
     *(.data SORT(.data.*))
-    _edata = .;  /* .data section end */
+    . = ALIGN(4);
+    _edata = .;
   } > sram AT > flash
   _sidata = LOADADDR(.data);
 
-  .bss : {
-    _sbss = .;              /* .bss section start */
+  .bss : ALIGN(4) {
+    _sbss = .;
     *(.bss SORT(.bss.*) COMMON)
-    _ebss = .;              /* .bss section end */
+    . = ALIGN(4);
+    _ebss = .;
   } > sram
 
   . = ALIGN(8);
