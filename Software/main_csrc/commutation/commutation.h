@@ -1,11 +1,9 @@
+// Commutation module is for changing and timing commutation steps
+// using controlled or open-loop operation
+
 #pragma once
 
-typedef enum {
-    //   HL
-    STEP_AB,
-    STEP_AC,
-    STEP_BC,
-    STEP_BA,
-    STEP_CA,
-    STEP_CB,
-} commutation_step_t;
+#include "motor_types.h"
+
+phase_idx_t get_floating_phase();
+void blocking_ol_commutation(void);

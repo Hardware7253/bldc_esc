@@ -12,18 +12,9 @@ static TIM_HandleTypeDef htim3;
     __HAL_RCC_TIM1_CLK_ENABLE(); \
     __HAL_RCC_TIM3_CLK_ENABLE
 
-
 #define NO_TIMS 2
 static TIM_HandleTypeDef* const TIM_HANDLES[NO_TIMS] = {&htim1, &htim3};
 static TIM_TypeDef* const TIM_INSTANCES[NO_TIMS] = {TIM1, TIM3};
-
-#define NO_PHASES PHASE_NULL
-typedef enum {
-    PHASE_A = 0,
-    PHASE_B,
-    PHASE_C,
-    PHASE_NULL,
-} phase_idx_t;
 
 // Peripheral arrays indexed by phase_idx_t
 static GPIO_TypeDef* const LOW_PORTS[NO_PHASES] = {GPIOB, GPIOA, GPIOA};

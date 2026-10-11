@@ -2,8 +2,7 @@
 
 #pragma once
 
-#include "commutation.h"
-#include "stm32c0xx_hal.h"
+#include "motor_types.h"
 #include <stdint.h>
 
 void init_gd_peripherals(void);
