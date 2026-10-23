@@ -3,33 +3,35 @@
 #include "system.h"
 #include "map.h"
 
-static TIM_HandleTypeDef htim1 = {0};
-static TIM_HandleTypeDef htim3 = {0};
+#define TIM_INSTANCE TIM1
+static TIM_HandleTypeDef htim = {0};
 
 #define PERIPH_CLK_ENABLE \
     __HAL_RCC_GPIOA_CLK_ENABLE(); \
     __HAL_RCC_GPIOB_CLK_ENABLE(); \
-    __HAL_RCC_TIM1_CLK_ENABLE(); \
-    __HAL_RCC_TIM3_CLK_ENABLE
-
-#define NO_TIMS 2
-static TIM_HandleTypeDef* const TIM_HANDLES[NO_TIMS] = {&htim1, &htim3};
-static TIM_TypeDef* const TIM_INSTANCES[NO_TIMS] = {TIM1, TIM3};
+    __HAL_RCC_TIM1_CLK_ENABLE
 
 // Peripheral arrays indexed by phase_idx_t
 static GPIO_TypeDef* const LOW_PORTS[NO_PHASES] = {GPIOB, GPIOA, GPIOA};
 static GPIO_TypeDef* const HIGH_PORTS[NO_PHASES] = {GPIOB, GPIOA, GPIOA};
 static const uint32_t LOW_PINS[NO_PHASES] = {GPIO_PIN_4, GPIO_PIN_10, GPIO_PIN_8};
-static const uint32_t HIGH_PINS[NO_PHASES] = {GPIO_PIN_5, GPIO_PIN_11, GPIO_PIN_9};
-static const uint32_t HIGH_AFS[NO_PHASES] = {GPIO_AF1_TIM3, GPIO_AF2_TIM1, GPIO_AF2_TIM1};
-static TIM_HandleTypeDef* const HIGH_TIM_HANDLES[NO_PHASES] = {&htim3, &htim1, &htim1};
-static const uint32_t HIGH_TIM_CHANS[NO_PHASES] = {TIM_CHANNEL_2, TIM_CHANNEL_4, TIM_CHANNEL_2};
+static const uint32_t HIGH_PINS[NO_PHASES] = {GPIO_PIN_6, GPIO_PIN_11, GPIO_PIN_9};
+static const uint32_t HIGH_AFS[NO_PHASES] = {GPIO_AF1_TIM1, GPIO_AF2_TIM1, GPIO_AF2_TIM1};
+
+static const uint32_t HIGH_TIM_CHANS[NO_PHASES] = {TIM_CHANNEL_3, TIM_CHANNEL_4, TIM_CHANNEL_2};
+
+// Channel used for activating ADC reading
+#define ADC_TRIG_CHANNEL TIM_CHANNEL_1
 
 
 // Base clock = 48MHz
 // Prescaler and period set for 100kHz output
-const uint16_t TIM_PRESCALER = 0;
-const uint16_t TIM_PERIOD = 479;
+static const uint16_t TIM_PRESCALER = 0;
+static const uint16_t TIM_PERIOD = 479;
+
+// Offset ADC triggering channel activation so it triggers slightly after the PWM output goes high
+// This will reduce the effect of ringing caused by the switching, and allow cleaner BEMF reading
+static const uint16_t MEAS_TRIG_OFFSET = TIM_PERIOD / 100;
 
 // Currently active phases
 static phase_idx_t high_phase = PHASE_NULL;
@@ -71,7 +73,7 @@ void init_gd_peripherals(void) {
 
     TIM_OC_InitTypeDef tim_oc_init = {
         .OCMode = TIM_OCMODE_PWM2,
-        .Pulse = TIM_PERIOD / 2, // Start with 50% duty ratio
+        .Pulse = TIM_PERIOD / 10, // Start with 10% duty ratio
         .OCPolarity = TIM_OCPOLARITY_LOW,
         .OCFastMode = TIM_OCFAST_DISABLE,
         .OCIdleState = TIM_OCIDLESTATE_RESET,
@@ -89,23 +91,23 @@ void init_gd_peripherals(void) {
     master_cfg.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
 
     // Init high side PWM timers
-    for (uint8_t i = 0; i < NO_TIMS; i++) {
-        TIM_HandleTypeDef* htim = TIM_HANDLES[i];
-        htim->Instance = TIM_INSTANCES[i];
-        htim->Init = tim_init;
+    htim.Instance = TIM_INSTANCE;
+    htim.Init = tim_init;
 
-        error_handler(HAL_TIM_Base_Init(htim));
-        error_handler(HAL_TIM_ConfigClockSource(htim, &clock_cfg));
-        error_handler(HAL_TIMEx_MasterConfigSynchronization(htim, &master_cfg));
-        error_handler(HAL_TIM_PWM_Init(htim));
-    }
+    error_handler(HAL_TIM_Base_Init(&htim));
+    error_handler(HAL_TIM_ConfigClockSource(&htim, &clock_cfg));
+    error_handler(HAL_TIMEx_MasterConfigSynchronization(&htim, &master_cfg));
+    error_handler(HAL_TIM_PWM_Init(&htim));
+    
 
     // Configure pwm channels
     for (uint8_t i = 0; i < NO_PHASES; i++) {
-        TIM_HandleTypeDef* htim = HIGH_TIM_HANDLES[i];
         uint32_t tim_channel = HIGH_TIM_CHANS[i];
-        error_handler(HAL_TIM_PWM_ConfigChannel(htim, &tim_oc_init, tim_channel));
+        error_handler(HAL_TIM_PWM_ConfigChannel(&htim, &tim_oc_init, tim_channel));
     }
+
+    // Configure channel used for activating BEMF sensing ADC read
+    error_handler(HAL_TIM_PWM_ConfigChannel(&htim, &tim_oc_init, ADC_TRIG_CHANNEL));
 }
 
 // Dead time for driving inverter gates
@@ -158,11 +160,11 @@ void switch_active_phases(commutation_step_t commutation_step) {
     // Turn off old high phase and turn on new high phase
     if (new_high_phase != high_phase) {
         if (high_phase != PHASE_NULL) {
-            error_handler(HAL_TIM_PWM_Stop(HIGH_TIM_HANDLES[high_phase], HIGH_TIM_CHANS[high_phase]));
+            error_handler(HAL_TIM_PWM_Stop(&htim, HIGH_TIM_CHANS[high_phase]));
             dead_time();
         }
 
-        error_handler(HAL_TIM_PWM_Start(HIGH_TIM_HANDLES[new_high_phase], HIGH_TIM_CHANS[new_high_phase]));
+        error_handler(HAL_TIM_PWM_Start(&htim, HIGH_TIM_CHANS[new_high_phase]));
     }
 
     // Turn off old low phase and turn on new low phase
@@ -191,7 +193,7 @@ void set_duty_100(uint16_t duty) {
 void set_duty_1000(uint16_t duty) {
     uint16_t duty_ccr = (uint16_t)map((int32_t)duty, 0, 1000, 0, (int32_t)TIM_PERIOD);
     for (uint8_t i = 0; i < NO_PHASES; i++) {
-        TIM_HandleTypeDef* htim = HIGH_TIM_HANDLES[i];
-        __HAL_TIM_SET_COMPARE(htim, HIGH_TIM_CHANS[i], duty_ccr);
+        __HAL_TIM_SET_COMPARE(&htim, HIGH_TIM_CHANS[i], duty_ccr);
     }
+    __HAL_TIM_SET_COMPARE(&htim, ADC_TRIG_CHANNEL, duty_ccr + MEAS_TRIG_OFFSET);
 }
