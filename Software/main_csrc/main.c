@@ -9,6 +9,7 @@ int main(void) {
     init_gd_peripherals();
 
     while (1) {
+        set_duty_100(20);
         blocking_ol_commutation();
     }
     return 0;

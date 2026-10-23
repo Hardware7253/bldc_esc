@@ -9,10 +9,18 @@ static commutation_step_t current_step = STEP_NULL;
 static phase_idx_t floating_phase = PHASE_NULL;
 
 // Delay between open-loop commutation steps
-static int16_t ol_step_delay = 100; // ms
+// static int16_t ol_step_delay = 10; // ms
 
-static const int16_t ol_ramp_step = 4;      // How much to decrement by after each electrical cycle
-static const int16_t ol_step_target = 1;    // Final steady-state target
+// static const int16_t ol_ramp_step = 1;      // How much to decrement by after each electrical cycle
+// static const int16_t ol_step_target = 1;    // Final steady-state target
+
+// Delay between open-loop commutation steps
+static int32_t ol_step_delay = 5000;
+
+static const int32_t ol_ramp_step = 2;      // How much to decrement by after each electrical cycle
+static const int32_t ol_step_target = 1800;    // Final steady-state target
+
+
 
 // Get the floating phase using commutation_step_t as an index
 static const phase_idx_t FLOATING_PHASE_LUT[NO_COMMUTATION_STEPS] = {PHASE_C, PHASE_B, PHASE_A, PHASE_C, PHASE_B, PHASE_A};
@@ -39,11 +47,18 @@ void next_step(void) {
     switch_active_phases(current_step);
 }
 
+static void delay(uint32_t cycles) {
+    for (volatile uint32_t i = 0; i < cycles; i++) {
+        (void) i;
+    }
+}
+
 // Blocking open-loop commutation
 // Blocks for a full electrical cycle
 void blocking_ol_commutation(void) {
     for (int i = 0; i < NO_COMMUTATION_STEPS; i++) {
-        HAL_Delay((uint32_t)ol_step_delay);
+        // HAL_Delay((uint32_t)ol_step_delay);
+        delay((uint32_t)ol_step_delay);
         next_step();
     }
 

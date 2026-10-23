@@ -181,8 +181,8 @@ void switch_active_phases(commutation_step_t commutation_step) {
 
 // Sets the duty ratio of the high side phase PWM
 // Duty can be [0, 100] where 100 corresponds to 100% duty ratio
-void set_duty_100(uint8_t duty) {
-    set_duty_1000((uint16_t)duty * 10);
+void set_duty_100(uint16_t duty) {
+    set_duty_1000(duty * 10);
 }
 
 // Sets the duty ratio of the high side phase PWM
