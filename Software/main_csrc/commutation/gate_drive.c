@@ -14,14 +14,15 @@ static TIM_HandleTypeDef htim = {0};
 // Peripheral arrays indexed by phase_idx_t
 static GPIO_TypeDef* const LOW_PORTS[NO_PHASES] = {GPIOB, GPIOA, GPIOA};
 static GPIO_TypeDef* const HIGH_PORTS[NO_PHASES] = {GPIOB, GPIOA, GPIOA};
-static const uint32_t LOW_PINS[NO_PHASES] = {GPIO_PIN_4, GPIO_PIN_10, GPIO_PIN_8};
-static const uint32_t HIGH_PINS[NO_PHASES] = {GPIO_PIN_6, GPIO_PIN_11, GPIO_PIN_9};
+static const uint32_t LOW_PINS[NO_PHASES] = {GPIO_PIN_4, GPIO_PIN_11, GPIO_PIN_8};
+static const uint32_t HIGH_PINS[NO_PHASES] = {GPIO_PIN_6, GPIO_PIN_10, GPIO_PIN_9};
 static const uint32_t HIGH_AFS[NO_PHASES] = {GPIO_AF1_TIM1, GPIO_AF2_TIM1, GPIO_AF2_TIM1};
 
-static const uint32_t HIGH_TIM_CHANS[NO_PHASES] = {TIM_CHANNEL_3, TIM_CHANNEL_4, TIM_CHANNEL_2};
+static const uint32_t HIGH_TIM_CHANS[NO_PHASES] = {TIM_CHANNEL_3, TIM_CHANNEL_3, TIM_CHANNEL_2};
 
 // Channel used for activating ADC reading
-#define ADC_TRIG_CHANNEL TIM_CHANNEL_1
+// This is a parameter but we really need it to be TIM1_CH4 because it can trigger an ADC conversion on the STM32C031
+#define ADC_TRIG_CHANNEL TIM_CHANNEL_4
 
 
 // Base clock = 48MHz

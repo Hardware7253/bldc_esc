@@ -58,6 +58,7 @@ target/%.o: %.s | target
 
 target/firmware.elf: $(OBJECTS) 
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) 
+	arm-none-eabi-size --format=berkeley target/firmware.elf
 
 target/firmware.bin: target/firmware.elf
 	arm-none-eabi-objcopy -O binary $< $@

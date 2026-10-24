@@ -1,7 +1,11 @@
 // This module inits ADC channels reading
 
-// Want max f_elec = 6 kHz
-// Want 6 samples in floating phase period (60 degrees)
-// Smaple rate = 6 * 6 * 6 = 220 kHz
-
 #pragma once
+
+#include <stdbool.h>
+#include <stdint.h>
+
+
+bool is_buffer_ready(void);
+uint16_t* get_raw_buf(void);
+void start_sampling(void);
