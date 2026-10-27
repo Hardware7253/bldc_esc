@@ -14,11 +14,11 @@ static TIM_HandleTypeDef htim = {0};
 // Peripheral arrays indexed by phase_idx_t
 static GPIO_TypeDef* const LOW_PORTS[NO_PHASES] = {GPIOB, GPIOA, GPIOA};
 static GPIO_TypeDef* const HIGH_PORTS[NO_PHASES] = {GPIOB, GPIOA, GPIOA};
-static const uint32_t LOW_PINS[NO_PHASES] = {GPIO_PIN_4, GPIO_PIN_11, GPIO_PIN_8};
-static const uint32_t HIGH_PINS[NO_PHASES] = {GPIO_PIN_6, GPIO_PIN_10, GPIO_PIN_9};
-static const uint32_t HIGH_AFS[NO_PHASES] = {GPIO_AF1_TIM1, GPIO_AF2_TIM1, GPIO_AF2_TIM1};
+static const uint32_t LOW_PINS[NO_PHASES] = {GPIO_PIN_4, GPIO_PIN_11, GPIO_PIN_9};
+static const uint32_t HIGH_PINS[NO_PHASES] = {GPIO_PIN_6, GPIO_PIN_10, GPIO_PIN_8};
+static const uint32_t HIGH_AFS[NO_PHASES] = {GPIO_AF11_TIM1, GPIO_AF2_TIM1, GPIO_AF2_TIM1};
 
-static const uint32_t HIGH_TIM_CHANS[NO_PHASES] = {TIM_CHANNEL_3, TIM_CHANNEL_3, TIM_CHANNEL_2};
+static const uint32_t HIGH_TIM_CHANS[NO_PHASES] = {TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_1};
 
 // Channel used for activating ADC reading
 // This is a parameter but we really need it to be TIM1_CH4 because it can trigger an ADC conversion on the STM32C031
@@ -26,13 +26,14 @@ static const uint32_t HIGH_TIM_CHANS[NO_PHASES] = {TIM_CHANNEL_3, TIM_CHANNEL_3,
 
 
 // Base clock = 48MHz
-// Prescaler and period set for 100kHz output
+// Prescaler and period set for 24kHz output
 static const uint16_t TIM_PRESCALER = 0;
-static const uint16_t TIM_PERIOD = 479;
+static const uint16_t TIM_PERIOD = 1999;
 
 // Offset ADC triggering channel activation so it triggers slightly after the PWM output goes high
-// This will reduce the effect of ringing caused by the switching, and allow cleaner BEMF reading
-static const uint16_t MEAS_TRIG_OFFSET = TIM_PERIOD / 100;
+// This is to avoid ringing at the start of the wave
+// Each offset corresponds to 20.8 ns at 100 kHz
+static const uint16_t MEAS_TRIG_OFFSET = 4;
 
 // Currently active phases
 static phase_idx_t high_phase = PHASE_NULL;
@@ -109,6 +110,9 @@ void init_gd_peripherals(void) {
 
     // Configure channel used for activating BEMF sensing ADC read
     error_handler(HAL_TIM_PWM_ConfigChannel(&htim, &tim_oc_init, ADC_TRIG_CHANNEL));
+
+    // Start ADC read trigger channel
+    error_handler(HAL_TIM_PWM_Start(&htim, ADC_TRIG_CHANNEL));
 }
 
 // Dead time for driving inverter gates

@@ -4,6 +4,8 @@
 #pragma once
 
 #include "motor_types.h"
+#include <stdbool.h>
 
-phase_idx_t get_floating_phase();
+bool did_commutation_just_step(void);
+phase_idx_t get_floating_phase(void);
 void blocking_ol_commutation(void);

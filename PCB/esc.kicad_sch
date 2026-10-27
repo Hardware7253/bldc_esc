@@ -3845,16 +3845,6 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 96.52) (xy 137.16 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1e152297-395c-4ec9-861b-17f6dd4f8152")
-	)
-	(wire
-		(pts
 			(xy 218.44 115.57) (xy 218.44 120.65)
 		)
 		(stroke
@@ -3922,16 +3912,6 @@
 			(type default)
 		)
 		(uuid "2b4af35b-db67-4a5f-965c-be775fa689c0")
-	)
-	(wire
-		(pts
-			(xy 148.59 91.44) (xy 137.16 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2bb8ae43-d8b1-46cb-b386-29f718898697")
 	)
 	(wire
 		(pts
@@ -4012,16 +3992,6 @@
 			(type default)
 		)
 		(uuid "302c9a8a-db51-4556-b62a-fe8f15a87821")
-	)
-	(wire
-		(pts
-			(xy 148.59 99.06) (xy 137.16 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3111d737-08c1-4c84-9a66-bf622673b494")
 	)
 	(wire
 		(pts
@@ -4185,16 +4155,6 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 93.98) (xy 137.16 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "53024e69-7bf7-4580-b64c-2e73c45e67fd")
-	)
-	(wire
-		(pts
 			(xy 87.63 247.65) (xy 96.52 247.65)
 		)
 		(stroke
@@ -4272,6 +4232,16 @@
 			(type default)
 		)
 		(uuid "61558b75-0cb0-4aa6-be5b-46a77b800516")
+	)
+	(wire
+		(pts
+			(xy 148.59 91.44) (xy 137.16 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6350bbb8-34cf-4e8f-b819-1a75f2c3e09e")
 	)
 	(wire
 		(pts
@@ -4375,6 +4345,16 @@
 	)
 	(wire
 		(pts
+			(xy 148.59 93.98) (xy 137.16 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "794dea6a-773f-414f-af80-c543af7e5a74")
+	)
+	(wire
+		(pts
 			(xy 87.63 257.81) (xy 115.57 257.81)
 		)
 		(stroke
@@ -4472,6 +4452,16 @@
 			(type default)
 		)
 		(uuid "85dcc5ec-a055-4e5e-91e9-c499bee0c05a")
+	)
+	(wire
+		(pts
+			(xy 148.59 99.06) (xy 137.16 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8631ed17-d9b9-43f1-ad07-5abb4fe4752b")
 	)
 	(wire
 		(pts
@@ -5095,6 +5085,16 @@
 	)
 	(wire
 		(pts
+			(xy 148.59 96.52) (xy 137.16 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "faf43d97-3ebe-48e9-a180-ae5feef883a2")
+	)
+	(wire
+		(pts
 			(xy 157.48 232.41) (xy 172.72 232.41)
 		)
 		(stroke
@@ -5173,16 +5173,6 @@
 		)
 		(uuid "297fa3a2-14ab-46ef-88b1-ecde9eceda40")
 	)
-	(label "ctrl_b_l"
-		(at 148.59 96.52 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "297fd664-805f-4f8c-a851-4ba6d9b1ea45")
-	)
 	(label "i_sense_buf"
 		(at 148.59 88.9 180)
 		(effects
@@ -5233,16 +5223,6 @@
 		)
 		(uuid "30e9a941-aa19-4474-97a7-6a75dd76273b")
 	)
-	(label "ctrl_c_l"
-		(at 148.59 91.44 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "46d21222-4665-49ea-a120-59f329dc8465")
-	)
 	(label "ctrl_a_h"
 		(at 45.72 163.83 0)
 		(effects
@@ -5263,16 +5243,6 @@
 			(justify left bottom)
 		)
 		(uuid "5e8a59ea-5312-4e5c-a338-b3c53608a434")
-	)
-	(label "ctrl_b_h"
-		(at 148.59 99.06 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "610bcd47-b439-4375-a786-cf5c7a6d45f0")
 	)
 	(label "i_sense_buf"
 		(at 246.38 240.03 180)
@@ -5355,6 +5325,16 @@
 		)
 		(uuid "7f36d608-517a-4ff6-b061-f0f7e7732fd0")
 	)
+	(label "ctrl_c_h"
+		(at 148.59 91.44 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8018098d-4ff5-46d7-9f57-c10eedbeacb2")
+	)
 	(label "A2"
 		(at 140.97 76.2 0)
 		(effects
@@ -5404,6 +5384,16 @@
 			(justify right bottom)
 		)
 		(uuid "a706f5f2-029d-4c17-aa28-45f213b9a212")
+	)
+	(label "ctrl_b_l"
+		(at 148.59 99.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "bc27108c-c0a4-4c14-9adb-3834292dfc96")
 	)
 	(label "inverter_ground"
 		(at 157.48 232.41 0)
@@ -5476,7 +5466,17 @@
 		)
 		(uuid "d1f8beb6-2f90-43a3-9b87-39d47f1e402a")
 	)
-	(label "ctrl_c_h"
+	(label "ctrl_b_h"
+		(at 148.59 96.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d9d9f967-5ef8-42a7-9a33-926b8203e0dc")
+	)
+	(label "ctrl_c_l"
 		(at 148.59 93.98 180)
 		(effects
 			(font
@@ -5484,7 +5484,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d67a1abf-45da-4b4e-b7dc-3bbd7669ca7d")
+		(uuid "df0f9205-c1f6-432a-aefc-420a32d850a1")
 	)
 	(label "i_sense"
 		(at 214.63 237.49 180)

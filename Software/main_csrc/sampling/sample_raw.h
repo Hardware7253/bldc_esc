@@ -6,6 +6,5 @@
 #include <stdint.h>
 
 
-bool is_buffer_ready(void);
-uint16_t* get_raw_buf(void);
 void start_sampling(void);
+uint16_t get_i_read(void);

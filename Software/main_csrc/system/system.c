@@ -21,7 +21,7 @@ void init_clocks(void) {
     // Oscillator config
     {
         // Turn on LSI and turn HSE, HSI, and LSE off
-        RCC_OscInitTypeDef osc_cfg;
+        RCC_OscInitTypeDef osc_cfg = {0};
         osc_cfg.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_LSI | RCC_OSCILLATORTYPE_LSE;
         osc_cfg.HSIState = RCC_HSI_ON;
         osc_cfg.HSEState = RCC_HSE_OFF;
@@ -42,7 +42,6 @@ void init_clocks(void) {
         };
         error_handler_msg(HAL_RCC_ClockConfig(&clk_cfg, FLASH_LATENCY_1), "Error with clock config");
     }
-
 }
 
 // Returns the tick frequency of the systick interrupt in Hz
